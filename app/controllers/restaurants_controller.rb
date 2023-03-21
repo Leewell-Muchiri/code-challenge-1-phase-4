@@ -4,10 +4,12 @@ class RestaurantsController < ApplicationController
         restaurants = Restaurant.all
         render json: restaurants, include:['restaurant.pizzas'], status: :ok
     end
+
     def show
         restaurants = Restaurant.find(params[:id])
-        render json: restaurants, status:
+        render json: restaurants, status: :ok
     end
+
     def destroy
         restaurants = Restaurant.find(params[:id])
         restaurants.destroy
